@@ -20,7 +20,7 @@ matrix:
 install:
 - echo 'Avoid default Travis CI install step'
 before_script:
-- rm -r flutter
+- rm -rf flutter
 - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
 - ./flutter/bin/flutter doctor
 script:
