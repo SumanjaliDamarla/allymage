@@ -12,12 +12,13 @@ addons:
 git:
   depth: 3
 env:
-- PUB_ALLOW_PRERELEASE_SDK=true
 - FLUTTER_VERSION=stable
 - FLUTTER_VERSION=beta
 matrix:
   allow_failures:
   - env: FLUTTER_VERSION=beta
+install:
+- echo 'Avoid default Travis CI install step'
 before_script:
 - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
 - ./flutter/bin/flutter doctor
