@@ -5,22 +5,23 @@ sudo: true
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - libstdc++6
-      - fonts-noto
+    - libstdc++6
+    - fonts-noto
 git:
   depth: 3
 env:
-  - FLUTTER_VERSION=stable
-  - FLUTTER_VERSION=beta
+- PUB_ALLOW_PRERELEASE_SDK=false
+- FLUTTER_VERSION=stable
+- FLUTTER_VERSION=beta
 matrix:
   allow_failures:
-    - env: FLUTTER_VERSION=beta
+  - env: FLUTTER_VERSION=beta
 before_script:
-  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-  - ./flutter/bin/flutter doctor
-  - chmod +x travis_script.sh
+- git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
+- ./flutter/bin/flutter doctor
+- chmod +x travis_script.sh
 script:
 - cd app
 - ./flutter/bin/flutter test
